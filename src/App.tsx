@@ -44,13 +44,13 @@ const App: React.FC = () => {
 
   return (
     <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
-      <h1>Firebase Push Notifications Demo</h1>
+      <h1>Firebase Push Notifications</h1>
 
       <div style={{ marginBottom: "20px" }}>
         <NotificationButton onTokenReceived={handleTokenReceived} />
       </div>
 
-      {fcmToken && (
+      {/* {fcmToken && (
         <div style={{ marginBottom: "20px" }}>
           <h3>Your FCM Token:</h3>
           <div
@@ -66,11 +66,11 @@ const App: React.FC = () => {
             {fcmToken}
           </div>
         </div>
-      )}
+      )} */}
 
       <NotificationForm fcmToken={fcmToken} />
 
-      {notification && (
+      {/* {notification && (
         <div style={{ marginTop: "20px" }}>
           <h3>Last Received Notification:</h3>
           <div
@@ -87,7 +87,7 @@ const App: React.FC = () => {
             )}
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
