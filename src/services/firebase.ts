@@ -55,11 +55,16 @@ export const requestNotificationPermission = async () => {
 
 
 // Handle foreground messages
-export const onMessageListener = () => {
-  return new Promise((resolve) => {
-    onMessage(messaging, (payload) => {
-      console.log("Message received in foreground:", payload);
-      resolve(payload);
-    });
-  });
+// export const onMessageListener = () => {
+//   return new Promise((resolve) => {
+//     onMessage(messaging, (payload) => {
+//       console.log("Message received in foreground:", payload);
+//       resolve(payload);
+//     });
+//   });
+// };
+
+// firebase.ts
+export const onMessageListener = (callback: (payload: any) => void) => {
+  onMessage(messaging, callback);
 };

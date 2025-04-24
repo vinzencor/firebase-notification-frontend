@@ -7,8 +7,22 @@ const App: React.FC = () => {
   const [fcmToken, setFcmToken] = useState<string | null>(null);
   const [notification, setNotification] = useState<any>(null);
 
+  // useEffect(() => {
+  //   onMessageListener().then((payload: any) => {
+  //     setNotification(payload);
+
+  //     if (payload.notification) {
+  //       const { title, body } = payload.notification;
+  //       new Notification(title, {
+  //         body,
+  //         icon: '/favicon.ico',
+  //       });
+  //     }
+  //   });
+  // }, []);
   useEffect(() => {
-    onMessageListener().then((payload: any) => {
+    onMessageListener((payload: any) => {
+      console.log("Foreground message received:", payload);
       setNotification(payload);
   
       if (payload.notification) {
@@ -19,9 +33,6 @@ const App: React.FC = () => {
         });
       }
     });
-  
-    // No cleanup needed, so just return nothing
-    return () => {};
   }, []);
   
 
